@@ -1,4 +1,4 @@
-import { ViewIcon } from "@chakra-ui/icons";
+import { CloseIcon, ViewIcon } from "@chakra-ui/icons";
 import {
   Modal,
   ModalOverlay,
@@ -15,6 +15,7 @@ import {
   Box,
   IconButton,
   Spinner,
+  TableContainer,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useState } from "react";
@@ -62,6 +63,10 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
       setLoading(false);
     }
   };
+
+  const handleclose = () => {
+    setSearchResult();
+  }
 
   const handleRename = async () => {
     if (!groupChatName) return;
@@ -210,7 +215,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
 
       <Modal onClose={onClose} isOpen={isOpen} isCentered>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent maxH="100%">
           <ModalHeader
             fontSize="35px"
             fontFamily="Work sans"
@@ -221,7 +226,7 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
           </ModalHeader>
 
           <ModalCloseButton />
-          <ModalBody d="flex" flexDir="column" alignItems="center">
+          <ModalBody display="flex" flexDir="column" alignItems="center">
             <Box w="100%" display="flex" flexWrap="wrap" pb={3}>
               {selectedChat.users.map((u) => (
                 <UserBadgeItem
@@ -249,12 +254,21 @@ const UpdateGroupChatModal = ({ fetchMessages, fetchAgain, setFetchAgain }) => {
                 Update
               </Button>
             </FormControl>
-            <FormControl>
+            <FormControl display="flex">
               <Input
                 placeholder="Add User to group"
                 mb={1}
                 onChange={(e) => handleSearch(e.target.value)}
               />
+              <Button
+                variant="solid"
+                colorScheme="red"
+                ml={1}
+                w="1rem"
+                onClick={handleclose}
+              >
+                <CloseIcon/>
+              </Button>
             </FormControl>
 
             {loading ? (
