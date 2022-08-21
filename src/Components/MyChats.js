@@ -53,7 +53,6 @@ const MyChats = ({ fetchAgain }) => {
       p={3}
       bg="#E2E2E2"
       w={{ base: "100%", md: "31%" }}
-      borderRadius="lg"
       borderWidth="1px"
     >
       <Box
@@ -67,13 +66,15 @@ const MyChats = ({ fetchAgain }) => {
         alignItems="center"
       >
         My Chats
-        <Button
-          display="flex"
-          fontSize={{ base: "17px", md: "10px", lg: "17px" }}
-          rightIcon={<AddIcon />}
-        >
-          New Group Chat
-        </Button>
+        <GroupChatModal>
+          <Button
+            display="flex"
+            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+            rightIcon={<AddIcon />}
+          >
+            New Group Chat
+          </Button>
+        </GroupChatModal>
       </Box>
       <Box
         d="flex"

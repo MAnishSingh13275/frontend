@@ -2,6 +2,7 @@ import { Button } from "@chakra-ui/button";
 import { useDisclosure } from "@chakra-ui/hooks";
 import { Input } from "@chakra-ui/input";
 import { Box, Flex, Text } from "@chakra-ui/layout";
+import Talk from "../../Assets/Talk.png";
 import {
   Menu,
   MenuButton,
@@ -31,7 +32,7 @@ import ProfileModal from "./ProfileModal";
 // import { getSender } from "../../config/ChatLogics";
 import UserListItem from "../userAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
-import { Spinner } from "@chakra-ui/react";
+import { Image, Spinner } from "@chakra-ui/react";
 
 function SideDrawer() {
   const [search, setSearch] = useState("");
@@ -147,7 +148,7 @@ function SideDrawer() {
           </Button>
         </Tooltip>
         <Text fontSize="2xl" fontFamily="Work sans">
-          Talk-A-Tive
+          <Image h={"3rem"} src={Talk} />
         </Text>
         <div>
           <Menu>
@@ -209,7 +210,7 @@ function SideDrawer() {
                 />
               ))
             )}
-          {loadingChat && <Spinner ml="auto" d="flex" />}
+            {loadingChat && <Spinner ml="auto" d="flex" />}
           </DrawerBody>
         </DrawerContent>
       </Drawer>
