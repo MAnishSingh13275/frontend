@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Box, Text, Flex, Image, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import Logo from "../Assets/asper-logo-white.png";
 import Login from "../Components/Authentication/Login";
 import Signup from "../Components/Authentication/Signup";
+import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
+
+  const history = useHistory();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+
+    if (!user) history.push("/");
+  }, [history]);
+
+
   return (
     <Flex w={"100vw"} m={0}>
       <Container maxW={"xl"} m={"auto"}>
