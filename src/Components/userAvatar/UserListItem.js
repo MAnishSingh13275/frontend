@@ -8,10 +8,9 @@ const UserListItem = ({user, handleFunction }) => {
     <Box
       onClick={handleFunction}
       cursor="pointer"
-      bg="#E8E8E8"
+      bg="#E2E2E2"
       _hover={{
-        background: "#38B2AC",
-        color: "white",
+        background: "white",
       }}
       w="100%"
       display="flex"

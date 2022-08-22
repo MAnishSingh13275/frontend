@@ -187,15 +187,16 @@ function SideDrawer() {
       </Flex>
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
-        <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
+        <DrawerContent bg="#B00E15">
+          <DrawerHeader color="white" borderBottom="1px">Search Users</DrawerHeader>
           <DrawerBody>
-            <Box display="flex" pb={2}>
+            <Box mt={5} display="flex" pb={2}>
               <Input
+                color="white"
                 placeholder="Search by name or email"
                 mr={1}
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
+                onChange={(e) => setSearch(e.target.value)  }
               />
               <Button onClick={handleSearch}>Go</Button>
             </Box>

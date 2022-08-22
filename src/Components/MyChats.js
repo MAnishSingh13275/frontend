@@ -51,9 +51,9 @@ const MyChats = ({ fetchAgain }) => {
       flexDir="column"
       alignItems="center"
       p={3}
-      bg="#E2E2E2"
+      bg="#121212"
       w={{ base: "100%", md: "31%" }}
-      borderWidth="1px"
+      borderRight="2px"
     >
       <Box
         pb={3}
@@ -62,6 +62,7 @@ const MyChats = ({ fetchAgain }) => {
         fontFamily="Work sans"
         display="flex"
         w="100%"
+        color="white"
         justifyContent="space-between"
         alignItems="center"
       >
@@ -71,6 +72,10 @@ const MyChats = ({ fetchAgain }) => {
             display="flex"
             fontSize={{ base: "17px", md: "10px", lg: "17px" }}
             rightIcon={<AddIcon />}
+            background="#B00E15"
+            _hover={{
+              background: "red",
+            }}
           >
             New Group Chat
           </Button>
@@ -80,7 +85,7 @@ const MyChats = ({ fetchAgain }) => {
         d="flex"
         flexDir="column"
         p={3}
-        bg="#F8F8F8"
+        bg="#121212"
         w="100%"
         h="100%"
         borderRadius="lg"

@@ -13,9 +13,9 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
       alignItems="center"
       flexDir="column"
       p={3}
-      bg="#E2E2E2"
+      bg="#121212"
+      color="white"
       w={{ base: "100%", md: "68%" }}
-      borderWidth="1px"
     >
       <SingleChat fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
     </Box>
