@@ -25,14 +25,12 @@ import { useState } from "react";
 import axios from "axios";
 import { useToast } from "@chakra-ui/toast";
 import ChatLoading from "../ChatLoading";
-// import { Spinner } from "@chakra-ui/spinner";
 import ProfileModal from "./ProfileModal";
-// import NotificationBadge from "react-notification-badge";
-// import { Effect } from "react-notification-badge";
-// import { getSender } from "../../config/ChatLogics";
+import NotificationBadge, { Effect } from "react-notification-badge";
 import UserListItem from "../userAvatar/UserListItem";
 import { ChatState } from "../../Context/ChatProvider";
 import { Image, Spinner } from "@chakra-ui/react";
+import { getSender } from "../../config/ChatLogics";
 
 function SideDrawer() {
   const [search, setSearch] = useState("");
@@ -153,8 +151,27 @@ function SideDrawer() {
         <div>
           <Menu>
             <MenuButton p={1}>
+              <NotificationBadge
+              count={notification.length}
+              effect={Effect.SCALE}/>
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
+            <MenuList pl={2}>
+              {!notification.length && "No New Messages"}
+              {notification.map((notif) => (
+                <MenuItem
+                  key={notif._id}
+                  onClick={() => {
+                    setSelectedChat(notif.chat);
+                    setNotification(notification.filter((n) => n !== notif));
+                  }}
+                >
+                  {notif.chat.isGroupChat
+                    ? `New Message in ${notif.chat.chatName}`
+                    : `New Message from - ${getSender(user, notif.chat.users)}`}
+                </MenuItem>
+              ))}
+            </MenuList>
           </Menu>
           <Menu>
             <MenuButton
@@ -188,7 +205,9 @@ function SideDrawer() {
       <Drawer placement="left" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent bg="#B00E15">
-          <DrawerHeader color="white" borderBottom="1px">Search Users</DrawerHeader>
+          <DrawerHeader color="white" borderBottom="1px">
+            Search Users
+          </DrawerHeader>
           <DrawerBody>
             <Box mt={5} display="flex" pb={2}>
               <Input
@@ -196,7 +215,7 @@ function SideDrawer() {
                 placeholder="Search by name or email"
                 mr={1}
                 value={search}
-                onChange={(e) => setSearch(e.target.value)  }
+                onChange={(e) => setSearch(e.target.value)}
               />
               <Button onClick={handleSearch}>Go</Button>
             </Box>
