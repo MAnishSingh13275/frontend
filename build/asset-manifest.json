@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e60d1cb4.css",
+    "main.js": "/static/js/main.63429d5b.js",
+    "static/media/asper-logo-white.png": "/static/media/asper-logo-white.af174030d497928068f8.png",
+    "static/media/Talk.png": "/static/media/Talk.aa678922944e9be18ba5.png",
+    "index.html": "/index.html",
+    "main.e60d1cb4.css.map": "/static/css/main.e60d1cb4.css.map",
+    "main.63429d5b.js.map": "/static/js/main.63429d5b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e60d1cb4.css",
+    "static/js/main.63429d5b.js"
+  ]
+}

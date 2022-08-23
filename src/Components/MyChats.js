@@ -70,7 +70,8 @@ const MyChats = ({ fetchAgain }) => {
         <GroupChatModal>
           <Button
             display="flex"
-            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+            fontSize={{ base: "8px", md: "10px", lg: "17px",}}
+            p={{ base: "10px"}}
             rightIcon={<AddIcon />}
             background="#B00E15"
             _hover={{

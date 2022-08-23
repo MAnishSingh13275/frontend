@@ -1,4 +1,3 @@
-
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -9,13 +8,12 @@ import ChatProvider from "./Context/ChatProvider";
 import { BrowserRouter } from "react-router-dom";
 
 ReactDOM.render(
-  <ChakraProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <ChakraProvider>
       <ChatProvider>
         <App />
       </ChatProvider>
-    </BrowserRouter>
-  </ChakraProvider>,
+    </ChakraProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
-

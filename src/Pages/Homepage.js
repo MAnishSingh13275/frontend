@@ -1,12 +1,22 @@
 import React, { useEffect } from "react";
-import { Container, Box, Text, Flex, Image, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Text,
+  Image,
+  Tabs,
+  TabList,
+  Tab,
+  TabPanels,
+  TabPanel,
+} from "@chakra-ui/react";
 import Logo from "../Assets/asper-logo-white.png";
 import Login from "../Components/Authentication/Login";
 import Signup from "../Components/Authentication/Signup";
 import { useHistory } from "react-router-dom";
+import Talk from "../Assets/Talk.png";
 
 const Homepage = () => {
-
   const history = useHistory();
 
   useEffect(() => {
@@ -15,9 +25,8 @@ const Homepage = () => {
     if (!user) history.push("/");
   }, [history]);
 
-
   return (
-    <Flex w={"100vw"} m={0}>
+    <Box display={{ lg: "flex" }} w={"100vw"} m={0}>
       <Container maxW={"xl"} m={"auto"}>
         <Box
           display={"flex"}
@@ -29,7 +38,9 @@ const Homepage = () => {
           borderRadius={"lg"}
           borderWidth={"1px"}
         >
-          <Text fontSize={"4xl"} color={"black"}>Talk</Text>
+          <Text fontSize={"4xl"} color={"black"}>
+            <Image h={"3rem"} src={Talk} />
+          </Text>
         </Box>
         <Box
           p={4}
@@ -45,21 +56,19 @@ const Homepage = () => {
             </TabList>
             <TabPanels>
               <TabPanel>
-                <Login/>
+                <Login />
               </TabPanel>
               <TabPanel>
-                <Signup/>
+                <Signup />
               </TabPanel>
             </TabPanels>
           </Tabs>
         </Box>
       </Container>
-      <Container
-        maxW={"30vw"}
-        m={"auto"}
-        
-      ><Image src={Logo} /></Container>
-    </Flex>
+      <Container maxW={"30vw"} m={"auto"}>
+        <Image display={{ md: "none", sm: "none", lg: "block" }} src={Logo} />
+      </Container>
+    </Box>
   );
 };
 
