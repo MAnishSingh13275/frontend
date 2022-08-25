@@ -154,12 +154,12 @@ function SideDrawer() {
           <Menu>
             <MenuButton p={1}>
               <NotificationBadge
-                // count={notification.length}
-                // effect={Effect.SCALE}
+                count={notification.length}
+                effect={Effect.SCALE}
               />
               <BellIcon fontSize="2xl" m={1} />
             </MenuButton>
-            {/* <MenuList pl={2}>
+            <MenuList pl={2}>
               {!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
@@ -174,7 +174,7 @@ function SideDrawer() {
                     : `New Message from ${getSender(user, notif.chat.users)}`}
                 </MenuItem>
               ))}
-            </MenuList> */}
+            </MenuList>
           </Menu>
           <Menu>
             <MenuButton
