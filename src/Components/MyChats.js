@@ -58,7 +58,7 @@ const MyChats = ({ fetchAgain }) => {
       <Box
         pb={3}
         px={3}
-        fontSize={{ base: "28px", md: "30px" }}
+        fontSize={{ lg:"", md:"", sm:"" }}
         fontFamily="Work sans"
         display="flex"
         w="100%"
@@ -70,7 +70,8 @@ const MyChats = ({ fetchAgain }) => {
         <GroupChatModal>
           <Button
             display="flex"
-            fontSize={{ base: "17px", md: "10px", lg: "17px" }}
+            padding={{ lg:"15px", md:"10px", sm:"8px"}}
+            fontSize={{ lg:"15px", md:"10px", sm:"8px" }}
             rightIcon={<AddIcon />}
             background="#B00E15"
             _hover={{
